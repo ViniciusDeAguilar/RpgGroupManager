@@ -20,11 +20,22 @@ public class Character implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
+
     private String name;
+
     private String race;
+
     private String class_;
-    private int level;
+
+    private Integer level;
+
     private String imageUrl;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sheet_id", referencedColumnName = "id")
+    private Sheet sheet;
 }
 

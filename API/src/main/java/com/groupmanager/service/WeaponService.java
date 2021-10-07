@@ -4,7 +4,6 @@ import com.groupmanager.dto.WeaponDto;
 import com.groupmanager.model.Weapon;
 import com.groupmanager.repo.WeaponRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,6 +24,7 @@ public class WeaponService {
         weapon.setDamage(weaponDto.getDamage());
         weapon.setType(weaponDto.getType());
         weaponRepo.save(weapon);
+
         return null;
     }
 

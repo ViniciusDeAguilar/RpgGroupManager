@@ -19,12 +19,23 @@ public class Sheet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Long id;
-    private int hp;
-    private int mp;
-    private int str;
-    private int dex;
-    private int cons;
-    private int int_;
-    private int wis;
-    private int char_;
+
+    private Integer hp;
+
+    private Integer mp;
+
+    private Integer str;
+
+    private Integer dex;
+
+    private Integer cons;
+
+    private Integer int_;
+
+    private Integer wis;
+
+    private Integer char_;
+
+    @OneToOne(mappedBy = "character")
+    private Character character;
 }

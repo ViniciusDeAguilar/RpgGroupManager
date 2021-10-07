@@ -9,7 +9,7 @@ public class CharacterDto {
     private String name;
     private String race;
     private String class_;
-    private String level;
+    private Integer level;
     private String imageUrl;
 
 }
