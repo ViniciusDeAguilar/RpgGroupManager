@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -36,6 +37,15 @@ public class Sheet {
 
     private Integer char_;
 
-    @OneToOne(mappedBy = "character")
+    @OneToOne(mappedBy = "sheet")
     private Character character;
+
+    @OneToMany(mappedBy = "sheet")
+    private Set<Perk> perk;
+
+    @OneToMany(mappedBy = "sheet")
+    private Set<Weapon> weapon;
+
+    @OneToMany(mappedBy = "sheet")
+    private Set<Magic> magic;
 }

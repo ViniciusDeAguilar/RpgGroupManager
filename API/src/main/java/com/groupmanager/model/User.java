@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -30,10 +30,7 @@ public class User {
 
     private String imageUrl;
 
-    @OneToMany(fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<Character> character;
+    @OneToMany(mappedBy = "user")
+    private Set<Character> character;
 
 }

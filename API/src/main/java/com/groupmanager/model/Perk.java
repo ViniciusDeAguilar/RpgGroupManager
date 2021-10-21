@@ -23,4 +23,8 @@ public class Perk {
     private String name;
 
     private String effect;
+
+    @ManyToOne
+    @JoinColumn(name = "sheet_id", nullable = false)
+    private Sheet sheet;
 }

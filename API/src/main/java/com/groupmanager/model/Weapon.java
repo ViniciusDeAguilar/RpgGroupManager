@@ -13,14 +13,21 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table
-public class Weapon {
+public class Weapon{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Long id;
+
     private String name;
+
     private String type;
+
     private String damage;
+
+    @ManyToOne
+    @JoinColumn(name = "sheet_id", nullable = false)
+    private Sheet sheet;
 }
 

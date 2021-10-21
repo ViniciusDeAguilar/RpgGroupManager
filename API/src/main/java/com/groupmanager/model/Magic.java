@@ -20,10 +20,18 @@ public class Magic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Long id;
-    private String name;
-    private String type;
-    private String damage;
-    private String effect;
-    private int cost;
 
+    private String name;
+
+    private String type;
+
+    private String damage;
+
+    private String effect;
+
+    private Integer cost;
+
+    @ManyToOne
+    @JoinColumn(name = "sheet_id", nullable = false)
+    private Sheet sheet;
 }

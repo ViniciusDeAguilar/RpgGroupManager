@@ -31,7 +31,8 @@ public class Character implements Serializable {
 
     private String imageUrl;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToOne(cascade = CascadeType.ALL)

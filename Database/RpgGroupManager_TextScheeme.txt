@@ -7,7 +7,7 @@ CREATE TABLE `user`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(128) NOT NULL,
     `email` VARCHAR(200) NOT NULL,
-    `password` VARCHAR(355),
+    `password` VARCHAR(355) NOT NULL,
     `imageUrl` VARCHAR(355),
     PRIMARY KEY (`id`)
 );
@@ -21,40 +21,9 @@ CREATE TABLE `authority`(
     FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
 );
 
-DROP TABLE IF EXISTS `perk`;
-CREATE TABLE `perk`(
-	`id` INT NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(355),
-    `effect` VARCHAR(800),
-    PRIMARY KEY (`id`)
-);
-
-DROP TABLE IF EXISTS `weapon`;
-CREATE TABLE `weapon`(
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`name` VARCHAR(258),
-	`type` VARCHAR(258),
-    `damage` VARCHAR(128),
-    PRIMARY KEY (`id`)
-);
-
-DROP TABLE IF EXISTS `magic`;
-CREATE TABLE `magic`(
-	`id` INT NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(258),
-    `type` VARCHAR(258),
-    `damage` VARCHAR(128),
-    `effect` VARCHAR(800),
-    `cost` INT,
-    PRIMARY KEY (`id`)
-);
-
 DROP TABLE IF EXISTS `sheet`;
 CREATE TABLE `sheet`(
 	`id` INT NOT NULL AUTO_INCREMENT,
-    `perk_id` INT,
-    `weapon_id` INT,
-    `magic_id` INT,
     `hp` INT,
     `mp`INT,
     `str`INT,
@@ -63,10 +32,41 @@ CREATE TABLE `sheet`(
     `int` INT,
     `wis` INT,
     `char` INT,
+    PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `perk`;
+CREATE TABLE `perk`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `sheet_id` INT,
+    `name` VARCHAR(355),
+    `effect` VARCHAR(800),
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`perk_id`) REFERENCES `perk`(`id`),
-    FOREIGN KEY (`weapon_id`) REFERENCES `weapon`(`id`),
-    FOREIGN KEY (`magic_id`) REFERENCES `magic`(`id`)
+    FOREIGN KEY(`sheet_id`) REFERENCES `sheet`(`id`)
+);
+
+DROP TABLE IF EXISTS `weapon`;
+CREATE TABLE `weapon`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `sheet_id` INT,
+	`name` VARCHAR(258),
+	`type` VARCHAR(258),
+    `damage` VARCHAR(128),
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`sheet_id`) REFERENCES `sheet`(`id`)
+);
+
+DROP TABLE IF EXISTS `magic`;
+CREATE TABLE `magic`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `sheet_id` INT,
+    `name` VARCHAR(258),
+    `type` VARCHAR(258),
+    `damage` VARCHAR(128),
+    `effect` VARCHAR(800),
+    `cost` INT,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`sheet_id`) REFERENCES `sheet`(`id`)
 );
 
 DROP TABLE IF EXISTS `character`;
@@ -78,7 +78,7 @@ CREATE TABLE `character`(
     `race` VARCHAR(128),
     `class` VARCHAR(128),
     `level` INT,
-    `imageUrl` VARCHAR(355),
+    `image_url` VARCHAR(355),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
     FOREIGN KEY(`sheet_id`) REFERENCES `sheet`(`id`) 
