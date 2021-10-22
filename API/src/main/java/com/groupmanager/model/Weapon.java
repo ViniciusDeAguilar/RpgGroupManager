@@ -27,7 +27,7 @@ public class Weapon{
     private String damage;
 
     @ManyToOne
-    @JoinColumn(name = "sheet_id", nullable = false)
+    @JoinColumn(name = "sheet_id")
     private Sheet sheet;
 }
 
