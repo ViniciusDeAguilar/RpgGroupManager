@@ -36,6 +36,9 @@ public class WeaponController {
         }
     }
 
+    // Get all
+
+
     @PostMapping("/add")
     public ResponseEntity<WeaponDto> saveWeapon(@RequestBody WeaponDto dto){
         weaponService.addWeapon(dto);

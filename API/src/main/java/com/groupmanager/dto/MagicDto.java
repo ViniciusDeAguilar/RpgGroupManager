@@ -1,5 +1,6 @@
 package com.groupmanager.dto;
 
+import com.groupmanager.model.Sheet;
 import lombok.Data;
 
 @Data
@@ -9,5 +10,7 @@ public class MagicDto {
     private String type;
     private String damage;
     private String effect;
-    private int cost;
+    private Integer cost;
+
+    private SheetDto sheet;
 }
