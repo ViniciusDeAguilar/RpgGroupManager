@@ -18,7 +18,7 @@ public class CharacterService{
         this.characterRepo = characterRepo;
     }
 
-    // Add new character
+    // Add new Character
     public CharacterDto addCharacter(CharacterDto characterDto){
         Character character = new Character();
 
@@ -27,6 +27,22 @@ public class CharacterService{
         character.setClass_(characterDto.getClass_());
         character.setLevel(characterDto.getLevel());
         character.setImageUrl(characterDto.getImageUrl());
+
+        characterRepo.save(character);
+        return null;
+    }
+
+    // Update Character
+    public CharacterDto updateCharacter(Long id, CharacterDto characterDto){
+        Character character = characterRepo.getById(id);
+
+        character.setName(characterDto.getName());
+        character.setRace(characterDto.getRace());
+        character.setClass_(characterDto.getClass_());
+        character.setLevel(characterDto.getLevel());
+        character.setImageUrl(characterDto.getImageUrl());
+
+        characterRepo.save(character);
         return null;
     }
 }
