@@ -46,6 +46,7 @@ public class MagicService {
         magic.setCost(magicDto.getCost());
 
         magicRepo.save(magic);
+
         return null;
     }
 
@@ -60,7 +61,6 @@ public class MagicService {
 
         if(magic.isPresent()){
             Magic m = magic.get();
-            SheetDto sheet = new SheetDto();
 
             dto.setName(m.getName());
             dto.setType(m.getType());
@@ -68,7 +68,7 @@ public class MagicService {
             dto.setEffect(m.getEffect());
             dto.setCost(m.getCost());
 
-
+            dto.setSheet(new SheetDto(m.getSheet()));
 
             return dto;
         }

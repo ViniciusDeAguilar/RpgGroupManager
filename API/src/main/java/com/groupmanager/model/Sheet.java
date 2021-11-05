@@ -31,11 +31,11 @@ public class Sheet {
 
     private Integer cons;
 
-    private Integer int_;
+    private Integer inte;
 
     private Integer wis;
 
-    private Integer char_;
+    private Integer chari;
 
     @OneToOne(mappedBy = "sheet")
     private Character character;

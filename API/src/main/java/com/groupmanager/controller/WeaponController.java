@@ -2,7 +2,6 @@ package com.groupmanager.controller;
 
 import com.groupmanager.dto.WeaponDto;
 import com.groupmanager.exception.WeaponNotFoundException;
-import com.groupmanager.model.Weapon;
 import com.groupmanager.service.WeaponService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -31,7 +31,7 @@ public class Magic {
 
     private Integer cost;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Sheet.class)
     @JoinColumn(name = "sheet_id")
     private Sheet sheet;
 }

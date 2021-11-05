@@ -1,7 +1,9 @@
 package com.groupmanager.dto;
 
+import com.groupmanager.model.Magic;
 import com.groupmanager.model.Sheet;
 import lombok.Data;
+import com.groupmanager.dto.SheetDto;
 
 @Data
 public class MagicDto {
@@ -13,4 +15,13 @@ public class MagicDto {
     private Integer cost;
 
     private SheetDto sheet;
+
+    // Constructor
+//    public MagicDto(Magic magic) {
+//        this.name = magic.getName();
+//        this.type = magic.getType();
+//        this.damage = magic.getDamage();
+//        this.effect = magic.getEffect();
+//        this.cost = magic.getCost();
+//    }
 }
