@@ -8,7 +8,7 @@ public class CharacterDto {
     private Long id;
     private String name;
     private String race;
-    private String class_;
+    private String classs;
     private Integer level;
     private String imageUrl;
 

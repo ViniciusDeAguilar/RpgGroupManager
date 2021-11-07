@@ -46,7 +46,6 @@ public class MagicService {
         magic.setCost(magicDto.getCost());
 
         magicRepo.save(magic);
-
         return null;
     }
 
@@ -69,7 +68,6 @@ public class MagicService {
             dto.setCost(m.getCost());
 
             dto.setSheet(new SheetDto(m.getSheet()));
-
             return dto;
         }
 

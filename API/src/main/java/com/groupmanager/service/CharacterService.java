@@ -24,7 +24,7 @@ public class CharacterService{
 
         character.setName(characterDto.getName());
         character.setRace(characterDto.getRace());
-        character.setClass_(characterDto.getClass_());
+        character.setClasss(characterDto.getClasss());
         character.setLevel(characterDto.getLevel());
         character.setImageUrl(characterDto.getImageUrl());
 
@@ -38,11 +38,16 @@ public class CharacterService{
 
         character.setName(characterDto.getName());
         character.setRace(characterDto.getRace());
-        character.setClass_(characterDto.getClass_());
+        character.setClasss(characterDto.getClasss());
         character.setLevel(characterDto.getLevel());
         character.setImageUrl(characterDto.getImageUrl());
 
         characterRepo.save(character);
         return null;
+    }
+
+    // Delete Character
+    public void deleteCharacter(Long id){
+        characterRepo.deleteById(id);
     }
 }

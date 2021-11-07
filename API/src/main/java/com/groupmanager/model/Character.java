@@ -25,7 +25,7 @@ public class Character implements Serializable {
 
     private String race;
 
-    private String class_;
+    private String classs;
 
     private Integer level;
 

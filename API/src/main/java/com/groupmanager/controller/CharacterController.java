@@ -30,4 +30,12 @@ public class CharacterController{
 
         return ResponseEntity.ok().body(id);
     }
+
+    // Delete character
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteCharacter(@PathVariable Long id){
+        characterService.deleteCharacter(id);
+
+        return null;
+    }
 }

@@ -25,6 +25,6 @@ public class Perk {
     private String effect;
 
     @ManyToOne
-    @JoinColumn(name = "sheet_id", nullable = false)
+    @JoinColumn(name = "sheet_id")
     private Sheet sheet;
 }
